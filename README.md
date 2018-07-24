@@ -4,3 +4,64 @@ Introduction
 ---
 a lightweight Ioc container implementation. 
 
+
+Features
+---
+-- 1: Bean metadata definition
+-- 2: interface implementation  
+-- 3: good code structure
+-- 4: support XML configuration and annotations configuration.
+-- 5: dependency packet is less (javaassit, log4j, JDOM)
+
+
+Source demo 
+---
+
+```java
+public class Man {
+	private String name;
+	private int age;
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+```xml
+<?xml version="1.0"?>
+<beans>
+ <bean id ="Bean1" class="Man">
+  <property name="name" value="Chris"/>
+  <property name="age"  value="28"/>
+ </bean>
+</beans>
+```
+
+```java
+public class PropertyXMLCase{
+	public static void test()throws Throwable{
+		BeanContext context=new BeanContextImpl("org/jmin/test/ioc/property/pojo.xml");
+		Man man = (Man)context.getBean("Bean1");
+		if(man!=null){
+			if("Chris".equals(man.getName()) && (28== man.getAge())){
+				System.out.println("[XML].........success ..........");
+			}else{
+				throw new Error("[XML]...........failed............");
+			}
+		}
+	}
+	
+	public static void main(String[] args)throws Throwable{
+		test();
+	}
+}
+```
