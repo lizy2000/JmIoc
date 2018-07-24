@@ -9,7 +9,7 @@ Features
 ---
 1: Very lightweight,container jar is about 170kb<br/>
 2: Bean metadata definition  <br/>
-3: interface implementation  <br/>  
+3: interface implementation  <br/>
 4: good code structure       <br/>
 5: support XML configuration and annotations <br/>
 6: support AOP  <br/>
