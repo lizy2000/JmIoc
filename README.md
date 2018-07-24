@@ -7,32 +7,33 @@ a lightweight Ioc container implementation.
 
 Features
 ---
--- 1: Bean metadata definition
--- 2: interface implementation  
--- 3: good code structure
--- 4: support XML configuration and annotations configuration.
--- 5: dependency packet is less (javaassit, log4j, JDOM)
-
+1: Very lightweight,container jar is about 170kb<br/>
+2: Bean metadata definition  <br/>
+3: interface implementation  <br/>  
+4: good code structure       <br/>
+5: support XML configuration and annotations <br/>
+6: support AOP  <br/>
+7: dependency packet is less (javaassit, log4j, JDOM) <br/>
 
 Source demo 
 ---
 
 ```java
 public class Man {
-	private String name;
-	private int age;
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+  private String name;
+  private int age;
+  public int getAge() {
+    return age;
+  }
+  public void setAge(int age) {
+     this.age = age;
+  }
+  public String getName() {
+	return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
 }
 ```
 
@@ -48,20 +49,20 @@ public class Man {
 
 ```java
 public class PropertyXMLCase{
-	public static void test()throws Throwable{
-		BeanContext context=new BeanContextImpl("org/jmin/test/ioc/property/pojo.xml");
-		Man man = (Man)context.getBean("Bean1");
-		if(man!=null){
-			if("Chris".equals(man.getName()) && (28== man.getAge())){
-				System.out.println("[XML].........success ..........");
-			}else{
-				throw new Error("[XML]...........failed............");
-			}
-		}
+ public static void test()throws Throwable{
+	BeanContext context=new BeanContextImpl("org/jmin/test/ioc/property/pojo.xml");
+	Man man = (Man)context.getBean("Bean1");
+	if(man!=null){
+	   if("Chris".equals(man.getName()) && (28== man.getAge())){
+		System.out.println("[XML].........success ..........");
+	    }else{
+		throw new Error("[XML]...........failed............");
+	    }
 	}
+    }
 	
-	public static void main(String[] args)throws Throwable{
-		test();
-	}
+    public static void main(String[] args)throws Throwable{
+      test();
+    }
 }
 ```
